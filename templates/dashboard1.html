@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+{% include 'nav.html' %}
+{% block content %}
+  <section class="contact-area section-padding-100-0">
+    <div class="container">
+      <div class="row justify-content-between">
+
+        <!-- Contact Content -->
+        <div class="col-12 col-lg-5">
+          <div class="contact-content mb-100">
+            <!-- Section Heading -->
+            <div class="section-heading">
+              <p></p>
+              <h2><span>Book your Visit</span></h2>
+              <img src="{% static 'img/core-img/decor.png' %}" alt="">
+            </div>
+            <!-- Contact Form Area -->
+            <div class="contact-form-area">
+                 
+
+              <form method="post">
+              	{%csrf_token%}
+		          {% for message in messages %}
+		          <p class="input100" id="messages">{{message}}</p>
+		          {% endfor %}  
+                <div class="row">
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="name" placeholder="Your Name">
+                  </div>
+                   <div class="input101">{{form.errors.name}}</div>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="phone" placeholder="Your Phone Number">
+                  </div>
+                   <div class="input101">{{form.errors.phone}}</div>
+                  <div class="col-lg-6">
+                    <input list="browsers" class="form-control" name="insti" id="insti" placeholder="Select Institution">
+					           <datalist id="browsers">
+							    <option value="Institution 1">
+							    <option value="Institution 2">
+							    <option value="Institution 3">
+							    <option value="Institution 4">
+							    <option value="Institution 5">
+							  </datalist>
+                  </div>
+                   <div class="input101">{{form.errors.insti}}</div>
+                  <div class="col-12">
+                  	<p>Selecte Date of Visit</p>
+                    <input type="date" class="form-control" name="date" placeholder="Selecte Date of Visit">
+                  </div>
+
+                   <div class="input101">{{form.errors.date}}</div>
+                  <div class="col-12">
+                  	<p>Select Time of Visit</p>
+                    <input type="time" class="form-control" name="time" placeholder="Select Time of Visit">
+                  </div>
+                   <div class="input101">{{form.errors.time}}</div>
+                  <div class="col-12">
+                    <textarea name="purpose" class="form-control" cols="30" rows="10" placeholder="Purpose of Visit"></textarea>
+                  </div>
+                   <div class="input101">{{form.errors.purpose}}</div>
+                  <div class="col-12">
+                    <button type="submit" class="btn famie-btn">Generate E-Pass</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Maps -->
+        <div class="col-lg-6">
+          <div class="contact-maps mb-100">
+            <img src="{% static 'img/bg-img/6.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+</body>
+</html>
