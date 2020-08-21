@@ -26,3 +26,4 @@ urlpatterns = [
     path('visit/', visitpass,name='visitpass'),
 
 ]
+

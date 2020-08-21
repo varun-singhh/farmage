@@ -18,3 +18,4 @@ class visitform(models.Model):
 	time=models.CharField(max_length=44,blank=False,null=True)
 	date=models.CharField(max_length=44,blank=False,null=True)
 	insti=models.CharField(max_length=44,blank=False,null=True)
+	num=models.CharField(max_length=44,blank=False,null=True)
